@@ -1,5 +1,7 @@
 # Practical vEB Tree
 
+*If the math is not properly displayed, check the [pdf version](README.pdf)!*
+
 The goal of this project is to implement a version (variant) of van Emde Boas tree that can outperform standard (comparison based) containers.
 
 Currently we're testing our implementation against `std::set` and `__gnu_pbds::tree`. We may add hand-written data structures for comparisons at a later stage. We focus particularly on three operations that van Emde Boas trees natively support: `insert`, `delete`, `successor`.
@@ -37,5 +39,3 @@ Keys are integers in $U=[0,2^{60})$ (so we cannot really afford to build the who
 Implementations are tested on $2^{25}$ random operations. 30% insert, 15% delete, 55% successor.
 
 [Work in progress...]
-
-The current plan is to use cuckoo hashing. Not implemented yet. https://ideone.com/ijZ3Z5
