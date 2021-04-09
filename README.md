@@ -34,7 +34,7 @@ Even including the 1.23s took to build the giant vEB tree, this version of vEB t
 
 #### Scenario 2
 
-Keys are integers in $U=[0,2^{60})$ (so we cannot really afford to build the whole vEB tree).
+Keys are integers in $U=[0,2^{40})$ (so we cannot really afford to build the whole vEB tree).
 
 Implementations are tested on $2^{25}$ random operations. 30% insert, 15% delete, 55% successor.
 

@@ -16,10 +16,6 @@ class vEB {
 //		assert(x>=0&&x<(1<<s));
 		if(x<mi) return mi;
 		if(mi==-1) return -1;
-		if(s==1) {
-			if(x<mx) return mx;
-			return -1;
-		}
 		int c=x>>((s+1)/2),i=x&((1<<((s+1)/2))-1);
 		if(i<bt[c].mx) {
 			int w=bt[c].suc(i);
@@ -38,22 +34,14 @@ class vEB {
 		if(x==mi||x==mx) return 0;
 		if(x<mi) std::swap(mi,x);
 		if(x>mx) mx=x;
-		if(s==1) {
-//			assert(mi!=-1);
-			return 1;
-		}
 		int c=x>>((s+1)/2),i=x&((1<<((s+1)/2))-1);
 		if(bt[c].mi==-1) tp->ins(c);
 		return bt[c].ins(i);
 	}
 	inline bool del(int x) {
+		if(mi==-1||x<mi) return 0;
 //		assert(x>=0&&x<(1<<s));
 		if(x==mi) {
-			if(s==1) {
-				if(mx==mi) mi=mx=-1;
-				else mi=mx;
-				return 1;
-			}
 			int c=tp->mi;
 			if(c==-1) {
 				mi=mx=-1; return 1;
@@ -62,13 +50,6 @@ class vEB {
 			x=mi=(c<<((s+1)/2))|bt[c].mi;
 		}
 //		assert(x>=0&&x<(1<<s));
-		if(s==1) {
-			if(x==mx) {
-				mx=mi;
-				return 1;
-			}
-			else return 0;
-		}
 		int c=x>>((s+1)/2),i=x&((1<<((s+1)/2))-1);
 		if(bt[c].mi==-1) return 0;
 		if(!bt[c].del(i)) {
